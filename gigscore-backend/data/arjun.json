@@ -1,0 +1,596 @@
+{
+  "worker_id": "arjun",
+  "name": "Arjun Nair",
+  "platform": "Urban Company",
+  "tenure_months": 3,
+  "transactions": [
+    {
+      "date": "2026-03-26",
+      "description": "Informal Loan Repayment",
+      "amount": 507,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-25",
+      "description": "Food - Dhaba",
+      "amount": 639,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-24",
+      "description": "Food - Dhaba",
+      "amount": 275,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-23",
+      "description": "Food - Dhaba",
+      "amount": 571,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-22",
+      "description": "Tools / Hardware",
+      "amount": 575,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-21",
+      "description": "Informal Loan Repayment",
+      "amount": 288,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-20",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2156,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-20",
+      "description": "Auto Fare",
+      "amount": 624,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-19",
+      "description": "Informal Loan Repayment",
+      "amount": 196,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-15",
+      "description": "Cigarettes",
+      "amount": 389,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-14",
+      "description": "Food - Dhaba",
+      "amount": 320,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-13",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2240,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-13",
+      "description": "Cigarettes",
+      "amount": 185,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-12",
+      "description": "Tools / Hardware",
+      "amount": 614,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-11",
+      "description": "Food - Dhaba",
+      "amount": 398,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-09",
+      "description": "Cigarettes",
+      "amount": 524,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-08",
+      "description": "Food - Dhaba",
+      "amount": 531,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-07",
+      "description": "Auto Fare",
+      "amount": 593,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-06",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2026,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-06",
+      "description": "Cigarettes",
+      "amount": 280,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-05",
+      "description": "Room Rent - Shared PG",
+      "amount": 5500,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-03-05",
+      "description": "Informal Loan Repayment",
+      "amount": 377,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-04",
+      "description": "Cigarettes",
+      "amount": 502,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-03",
+      "description": "Tools / Hardware",
+      "amount": 372,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-02",
+      "description": "Cigarettes",
+      "amount": 518,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-28",
+      "description": "Cigarettes",
+      "amount": 187,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-27",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2136,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-26",
+      "description": "Cigarettes",
+      "amount": 600,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-25",
+      "description": "Food - Dhaba",
+      "amount": 377,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-24",
+      "description": "Tools / Hardware",
+      "amount": 685,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-23",
+      "description": "Auto Fare",
+      "amount": 388,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-22",
+      "description": "Food - Dhaba",
+      "amount": 369,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-20",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2208,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-20",
+      "description": "Food - Dhaba",
+      "amount": 176,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-19",
+      "description": "Tools / Hardware",
+      "amount": 166,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-17",
+      "description": "Informal Loan Repayment",
+      "amount": 185,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-15",
+      "description": "Tools / Hardware",
+      "amount": 563,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-14",
+      "description": "Informal Loan Repayment",
+      "amount": 628,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-13",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2745,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-13",
+      "description": "Phone Repair",
+      "amount": 476,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-11",
+      "description": "Food - Dhaba",
+      "amount": 410,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-10",
+      "description": "Cigarettes",
+      "amount": 173,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-08",
+      "description": "Auto Fare",
+      "amount": 308,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-07",
+      "description": "Phone Repair",
+      "amount": 218,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-06",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2703,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-06",
+      "description": "Informal Loan Repayment",
+      "amount": 636,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-05",
+      "description": "Room Rent - Shared PG",
+      "amount": 5500,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-02-04",
+      "description": "Cigarettes",
+      "amount": 307,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-02",
+      "description": "Auto Fare",
+      "amount": 528,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-01",
+      "description": "Informal Loan Repayment",
+      "amount": 510,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-31",
+      "description": "Phone Repair",
+      "amount": 499,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-30",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2511,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-30",
+      "description": "Tools / Hardware",
+      "amount": 470,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-29",
+      "description": "Cigarettes",
+      "amount": 205,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-28",
+      "description": "Auto Fare",
+      "amount": 611,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-27",
+      "description": "Auto Fare",
+      "amount": 689,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-25",
+      "description": "Auto Fare",
+      "amount": 293,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-24",
+      "description": "Auto Fare",
+      "amount": 315,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-23",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2603,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-23",
+      "description": "Food - Dhaba",
+      "amount": 688,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-22",
+      "description": "Tools / Hardware",
+      "amount": 507,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-20",
+      "description": "Cigarettes",
+      "amount": 651,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-19",
+      "description": "Phone Repair",
+      "amount": 410,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-18",
+      "description": "Food - Dhaba",
+      "amount": 305,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-16",
+      "description": "Urban Company Weekly Payout",
+      "amount": 2962,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-16",
+      "description": "Informal Loan Repayment",
+      "amount": 602,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-13",
+      "description": "Auto Fare",
+      "amount": 626,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-12",
+      "description": "Tools / Hardware",
+      "amount": 381,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-11",
+      "description": "Auto Fare",
+      "amount": 239,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-09",
+      "description": "Urban Company Weekly Payout",
+      "amount": 3017,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-08",
+      "description": "Food - Dhaba",
+      "amount": 680,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-06",
+      "description": "Informal Loan Repayment",
+      "amount": 518,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-05",
+      "description": "Room Rent - Shared PG",
+      "amount": 5500,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-01-05",
+      "description": "Food - Dhaba",
+      "amount": 434,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-03",
+      "description": "Food - Dhaba",
+      "amount": 340,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-02",
+      "description": "Urban Company Weekly Payout",
+      "amount": 3051,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-02",
+      "description": "Phone Repair",
+      "amount": 544,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-01",
+      "description": "Food - Dhaba",
+      "amount": 331,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2025-12-29",
+      "description": "Tools / Hardware",
+      "amount": 168,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2025-12-28",
+      "description": "Cigarettes",
+      "amount": 263,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2025-12-27",
+      "description": "Informal Loan Repayment",
+      "amount": 695,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2025-12-26",
+      "description": "Urban Company Weekly Payout",
+      "amount": 3207,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2025-12-26",
+      "description": "Food - Dhaba",
+      "amount": 532,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2025-12-05",
+      "description": "Room Rent - Shared PG",
+      "amount": 5500,
+      "type": "debit",
+      "category": "rent"
+    }
+  ]
+}

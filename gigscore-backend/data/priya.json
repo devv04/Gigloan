@@ -1,0 +1,575 @@
+{
+  "worker_id": "priya",
+  "name": "Priya Mehta",
+  "platform": "Freelance Designer",
+  "tenure_months": 8,
+  "transactions": [
+    {
+      "date": "2026-03-26",
+      "description": "Grocery - BigBasket",
+      "amount": 654,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-26",
+      "description": "Zara Purchase",
+      "amount": 823,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-25",
+      "description": "Starbucks",
+      "amount": 1118,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-22",
+      "description": "Uber Trip",
+      "amount": 512,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-22",
+      "description": "Grocery - BigBasket",
+      "amount": 449,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-21",
+      "description": "Grocery - BigBasket",
+      "amount": 405,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-17",
+      "description": "Uber Trip",
+      "amount": 1006,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-15",
+      "description": "Zara Purchase",
+      "amount": 988,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-14",
+      "description": "Client Transfer - Design Project",
+      "amount": 7158,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-13",
+      "description": "Client Transfer - Design Project",
+      "amount": 6964,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-13",
+      "description": "Zara Purchase",
+      "amount": 732,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-13",
+      "description": "Starbucks",
+      "amount": 286,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-12",
+      "description": "Client Transfer - Design Project",
+      "amount": 7761,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-10",
+      "description": "Client Transfer - Design Project",
+      "amount": 8168,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-08",
+      "description": "Starbucks",
+      "amount": 560,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-07",
+      "description": "Client Transfer - Design Project",
+      "amount": 6885,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-06",
+      "description": "Starbucks",
+      "amount": 409,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-05",
+      "description": "Grocery - BigBasket",
+      "amount": 427,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-03-05",
+      "description": "Starbucks",
+      "amount": 686,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-05",
+      "description": "Grocery - BigBasket",
+      "amount": 878,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-03",
+      "description": "House Rent - Koramangala",
+      "amount": 12000,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-02-28",
+      "description": "Uber Trip",
+      "amount": 1173,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-27",
+      "description": "Uber Trip",
+      "amount": 982,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-27",
+      "description": "Uber Trip",
+      "amount": 371,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-26",
+      "description": "Zara Purchase",
+      "amount": 1161,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-25",
+      "description": "Uber Trip",
+      "amount": 1018,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-24",
+      "description": "Swiggy Order",
+      "amount": 834,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-23",
+      "description": "Starbucks",
+      "amount": 878,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-22",
+      "description": "Amazon Shopping",
+      "amount": 681,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-22",
+      "description": "Grocery - BigBasket",
+      "amount": 338,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-21",
+      "description": "Uber Trip",
+      "amount": 1169,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-21",
+      "description": "Uber Trip",
+      "amount": 304,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-20",
+      "description": "Swiggy Order",
+      "amount": 550,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-16",
+      "description": "Swiggy Order",
+      "amount": 1075,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-14",
+      "description": "Grocery - BigBasket",
+      "amount": 1107,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-13",
+      "description": "Starbucks",
+      "amount": 758,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-12",
+      "description": "Zara Purchase",
+      "amount": 791,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-12",
+      "description": "Uber Trip",
+      "amount": 865,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-11",
+      "description": "Starbucks",
+      "amount": 233,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-11",
+      "description": "Zara Purchase",
+      "amount": 601,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-10",
+      "description": "Grocery - BigBasket",
+      "amount": 1136,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-09",
+      "description": "Swiggy Order",
+      "amount": 710,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-07",
+      "description": "Grocery - BigBasket",
+      "amount": 984,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-06",
+      "description": "Grocery - BigBasket",
+      "amount": 849,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-02-05",
+      "description": "Upwork Client Transfer",
+      "amount": 19465,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-04",
+      "description": "Upwork Client Transfer",
+      "amount": 18467,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-03",
+      "description": "House Rent - Koramangala",
+      "amount": 12000,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-02-01",
+      "description": "Grocery - BigBasket",
+      "amount": 509,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-31",
+      "description": "Client Transfer - Design Project",
+      "amount": 6884,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-31",
+      "description": "Zara Purchase",
+      "amount": 550,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-30",
+      "description": "Starbucks",
+      "amount": 840,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-29",
+      "description": "Amazon Shopping",
+      "amount": 598,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-29",
+      "description": "Grocery - BigBasket",
+      "amount": 227,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-29",
+      "description": "Starbucks",
+      "amount": 201,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-28",
+      "description": "Starbucks",
+      "amount": 381,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-28",
+      "description": "Grocery - BigBasket",
+      "amount": 342,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-28",
+      "description": "Swiggy Order",
+      "amount": 890,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-24",
+      "description": "Uber Trip",
+      "amount": 762,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-23",
+      "description": "Amazon Shopping",
+      "amount": 508,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-22",
+      "description": "Client Transfer - Design Project",
+      "amount": 7015,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-21",
+      "description": "Swiggy Order",
+      "amount": 858,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-18",
+      "description": "Swiggy Order",
+      "amount": 930,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-17",
+      "description": "Client Transfer - Design Project",
+      "amount": 6290,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-17",
+      "description": "Grocery - BigBasket",
+      "amount": 780,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-17",
+      "description": "Starbucks",
+      "amount": 1147,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-14",
+      "description": "Amazon Shopping",
+      "amount": 731,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-13",
+      "description": "Starbucks",
+      "amount": 697,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-12",
+      "description": "Grocery - BigBasket",
+      "amount": 1136,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-11",
+      "description": "Starbucks",
+      "amount": 476,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-11",
+      "description": "Starbucks",
+      "amount": 765,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-08",
+      "description": "Zara Purchase",
+      "amount": 354,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-08",
+      "description": "Amazon Shopping",
+      "amount": 587,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-07",
+      "description": "Client Transfer - Design Project",
+      "amount": 6861,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-06",
+      "description": "Starbucks",
+      "amount": 789,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-05",
+      "description": "Uber Trip",
+      "amount": 1140,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-05",
+      "description": "Grocery - BigBasket",
+      "amount": 650,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2026-01-03",
+      "description": "House Rent - Koramangala",
+      "amount": 12000,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-01-03",
+      "description": "Amazon Shopping",
+      "amount": 787,
+      "type": "debit",
+      "category": "other"
+    },
+    {
+      "date": "2025-12-27",
+      "description": "Upwork Client Transfer",
+      "amount": 14811,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2025-12-26",
+      "description": "Swiggy Order",
+      "amount": 480,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2025-12-03",
+      "description": "House Rent - Koramangala",
+      "amount": 12000,
+      "type": "debit",
+      "category": "rent"
+    }
+  ]
+}

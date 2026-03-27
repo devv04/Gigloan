@@ -1,0 +1,421 @@
+{
+  "worker_id": "raju",
+  "name": "Raju Sharma",
+  "platform": "Zomato",
+  "tenure_months": 24,
+  "transactions": [
+    {
+      "date": "2026-03-25",
+      "description": "Grocery",
+      "amount": 216,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-24",
+      "description": "Mobile Recharge",
+      "amount": 185,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-03-23",
+      "description": "Fuel - HPCL",
+      "amount": 130,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2026-03-22",
+      "description": "Mobile Recharge",
+      "amount": 89,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-03-20",
+      "description": "Zomato Weekly Payout",
+      "amount": 6266,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-17",
+      "description": "Mobile Recharge",
+      "amount": 57,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-03-15",
+      "description": "Grocery",
+      "amount": 224,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-14",
+      "description": "Fuel - HPCL",
+      "amount": 48,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2026-03-13",
+      "description": "Zomato Weekly Payout",
+      "amount": 5790,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-12",
+      "description": "Grocery",
+      "amount": 101,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-10",
+      "description": "Zomato Surge Bonus",
+      "amount": 750,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2026-03-10",
+      "description": "Grocery",
+      "amount": 52,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-08",
+      "description": "Grocery",
+      "amount": 191,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-03-06",
+      "description": "Zomato Weekly Payout",
+      "amount": 6198,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-03-05",
+      "description": "Bike EMI - Bajaj Finance",
+      "amount": 2100,
+      "type": "debit",
+      "category": "emi"
+    },
+    {
+      "date": "2026-03-04",
+      "description": "Mobile Recharge",
+      "amount": 42,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-03-03",
+      "description": "Food / Snacks",
+      "amount": 178,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-03-02",
+      "description": "House Rent",
+      "amount": 4500,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-02-28",
+      "description": "Fuel - HPCL",
+      "amount": 45,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2026-02-27",
+      "description": "Zomato Weekly Payout",
+      "amount": 5663,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-22",
+      "description": "Grocery",
+      "amount": 244,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-02-20",
+      "description": "Zomato Weekly Payout",
+      "amount": 6207,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-14",
+      "description": "Zomato Surge Bonus",
+      "amount": 719,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2026-02-13",
+      "description": "Zomato Surge Bonus",
+      "amount": 793,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2026-02-13",
+      "description": "Zomato Weekly Payout",
+      "amount": 5842,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-13",
+      "description": "Food / Snacks",
+      "amount": 86,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-02-12",
+      "description": "Zomato Surge Bonus",
+      "amount": 510,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2026-02-11",
+      "description": "Fuel - HPCL",
+      "amount": 178,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2026-02-08",
+      "description": "Fuel - HPCL",
+      "amount": 139,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2026-02-06",
+      "description": "Zomato Weekly Payout",
+      "amount": 6304,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-02-05",
+      "description": "Bike EMI - Bajaj Finance",
+      "amount": 2100,
+      "type": "debit",
+      "category": "emi"
+    },
+    {
+      "date": "2026-02-04",
+      "description": "Mobile Recharge",
+      "amount": 217,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-02-02",
+      "description": "House Rent",
+      "amount": 4500,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-02-01",
+      "description": "Fuel - HPCL",
+      "amount": 176,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2026-01-31",
+      "description": "Mobile Recharge",
+      "amount": 193,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-01-30",
+      "description": "Zomato Weekly Payout",
+      "amount": 5797,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-23",
+      "description": "Zomato Weekly Payout",
+      "amount": 5599,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-21",
+      "description": "Mobile Recharge",
+      "amount": 101,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-01-20",
+      "description": "Food / Snacks",
+      "amount": 226,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2026-01-19",
+      "description": "Zomato Surge Bonus",
+      "amount": 732,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2026-01-17",
+      "description": "Grocery",
+      "amount": 233,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-16",
+      "description": "Zomato Weekly Payout",
+      "amount": 6094,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-12",
+      "description": "Grocery",
+      "amount": 90,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-10",
+      "description": "Zomato Surge Bonus",
+      "amount": 777,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2026-01-09",
+      "description": "Zomato Weekly Payout",
+      "amount": 5859,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-09",
+      "description": "Mobile Recharge",
+      "amount": 229,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-01-05",
+      "description": "Bike EMI - Bajaj Finance",
+      "amount": 2100,
+      "type": "debit",
+      "category": "emi"
+    },
+    {
+      "date": "2026-01-04",
+      "description": "Mobile Recharge",
+      "amount": 153,
+      "type": "debit",
+      "category": "recharge"
+    },
+    {
+      "date": "2026-01-03",
+      "description": "Grocery",
+      "amount": 223,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2026-01-02",
+      "description": "House Rent",
+      "amount": 4500,
+      "type": "debit",
+      "category": "rent"
+    },
+    {
+      "date": "2026-01-02",
+      "description": "Zomato Weekly Payout",
+      "amount": 5303,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2026-01-01",
+      "description": "Fuel - HPCL",
+      "amount": 224,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2025-12-31",
+      "description": "Zomato Surge Bonus",
+      "amount": 422,
+      "type": "credit",
+      "category": "bonus"
+    },
+    {
+      "date": "2025-12-31",
+      "description": "Grocery",
+      "amount": 86,
+      "type": "debit",
+      "category": "grocery"
+    },
+    {
+      "date": "2025-12-28",
+      "description": "Food / Snacks",
+      "amount": 53,
+      "type": "debit",
+      "category": "food"
+    },
+    {
+      "date": "2025-12-27",
+      "description": "Fuel - HPCL",
+      "amount": 188,
+      "type": "debit",
+      "category": "fuel"
+    },
+    {
+      "date": "2025-12-26",
+      "description": "Zomato Weekly Payout",
+      "amount": 5861,
+      "type": "credit",
+      "category": "platform_income"
+    },
+    {
+      "date": "2025-12-05",
+      "description": "Bike EMI - Bajaj Finance",
+      "amount": 2100,
+      "type": "debit",
+      "category": "emi"
+    },
+    {
+      "date": "2025-12-02",
+      "description": "House Rent",
+      "amount": 4500,
+      "type": "debit",
+      "category": "rent"
+    }
+  ]
+}
