@@ -27,7 +27,7 @@
 
 ### 1. Clone the repository
 
-git clone https://github.com/your-username/GigSKore.git
+git clone https://github.com/devv04/GigSKore.git
 cd GigSKore
 
 
