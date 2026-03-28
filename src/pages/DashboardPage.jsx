@@ -7,6 +7,9 @@ import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { ScoreGauge } from '../components/dashboard/ScoreGauge';
 import { CashFlowChart } from '../components/dashboard/CashFlowChart';
+import AICoach from '../components/AICoach';
+import ScoreSimulator from '../components/ScoreSimulator';
+import useCountAnimation from '../hooks/useCountAnimation';
 
 const ANALYSIS_STEPS = [
   'Syncing bank transactions via AA...',
@@ -14,6 +17,8 @@ const ANALYSIS_STEPS = [
   'Running GigScore credit model...',
   'Generating your credit identity...',
 ];
+
+let globalLastSeenScore = 0;
 
 export default function DashboardPage() {
   const { profileId } = useParams();
@@ -24,13 +29,106 @@ export default function DashboardPage() {
   const [analysisStep, setAnalysisStep] = useState(0);
   const [analysisComplete, setAnalysisComplete] = useState(false);
 
+  // --- ANIMATED HOOKS & RECALCULATION STATES ---
+  const animatedScore = useCountAnimation(profile?.score || 0, 2000, 0, !loading);
+  const animatedHeaderScore = useCountAnimation(profile?.score || 0, 1500, 100, !loading);
+  
+  const rawLoan = profile?.loanEligibility || profile?.loanOffer?.amount || '0';
+  const animatedLoan = useCountAnimation(parseInt(rawLoan.toString().replace(/[^0-9]/g, ''), 10) || 0, 1800, 200, !loading);
+  const animatedBannerLoan = useCountAnimation(parseInt(rawLoan.toString().replace(/[^0-9]/g, ''), 10) || 0, 1200, 600, !loading);
+  
+  const rawTax = profile?.taxSavings?.amount || '0';
+  const animatedTax = useCountAnimation(parseInt(rawTax.toString().replace(/[^0-9]/g, ''), 10) || 0, 1600, 400, !loading);
+  
+  const rawInc = profile?.avgIncome || '0';
+  const animatedIncome = useCountAnimation(parseInt(rawInc.toString().replace(/[^0-9]/g, ''), 10) || 0, 1400, 300, !loading);
+
+  // 1. Recalculating flash effect
+  const [isRecalculating, setIsRecalculating] = useState(false);
   useEffect(() => {
-    fetch(`http://localhost:5000/api/score/${profileId}`)
-      .then(res => {
-        if (!res.ok) throw new Error("Profile not found");
-        return res.json();
-      })
-      .then(data => {
+    setIsRecalculating(true);
+    const timer = setTimeout(() => setIsRecalculating(false), 300);
+    return () => clearTimeout(timer);
+  }, [profile]);
+
+  // 2. Score change indicator
+  const [scoreDiff, setScoreDiff] = useState(null);
+  const [showDiff, setShowDiff] = useState(false);
+
+  useEffect(() => {
+    if (profile?.score) {
+      if (globalLastSeenScore > 0 && globalLastSeenScore !== profile.score) {
+        setScoreDiff(profile.score - globalLastSeenScore);
+        setShowDiff(true);
+        const t = setTimeout(() => setShowDiff(false), 2000);
+        globalLastSeenScore = profile.score;
+        return () => clearTimeout(t);
+      } else {
+        globalLastSeenScore = profile.score;
+      }
+    }
+  }, [profile?.score]);
+
+  // 3. Staggered Progress Bars Drop-in
+  const [barsVisible, setBarsVisible] = useState(false);
+  useEffect(() => {
+    if (loading) {
+      setBarsVisible(false);
+      return;
+    }
+    const timer = setTimeout(() => setBarsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, [profile, loading]);
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        let data;
+        if (profileId.startsWith('GEN-')) {
+          const stored = sessionStorage.getItem(`generated_${profileId}`);
+          if (!stored) throw new Error("Generated profile not found in session");
+          const gen = JSON.parse(stored);
+          const colorMap = { 'green': 'positive', 'orange': 'warning', 'red': 'critical' };
+          const s = gen.scoreComponents;
+          
+          data = {
+            id: gen.id,
+            name: gen.name,
+            platform: gen.platform,
+            tenure: gen.tenure,
+            score: gen.gigScore,
+            statusBadge: gen.riskLabel,
+            statusColor: colorMap[gen.riskColor] || 'electric',
+            cashFlow: gen.monthlyIncome.map((inc, i) => ({
+              month: `Month ${i+1}`,
+              income: inc,
+              expense: gen.monthlyExpenses[i]
+            })),
+            loanOffer: { amount: `₹${gen.loanEligibility.toLocaleString('en-IN')}`, interest: '14%' },
+            taxSavings: { 
+              amount: `₹${gen.taxSaved.toLocaleString('en-IN')}`,
+              percent: "10%",
+              progress: 100
+            },
+            scoreBreakdown: {
+              incomeConsistency: { score: s.consistency.score, text: `Coef. of Variation: ${s.consistency.value}`, color: s.consistency.score > 70 ? 'positive' : 'warning' },
+              incomeTrend: { score: s.trend.score, text: `${s.trend.value > 0 ? '+' : ''}${s.trend.value}% growth`, color: s.trend.score >= 50 ? 'positive' : 'warning' },
+              platformTenure: { score: s.tenure.score, text: `${gen.tenure} months history`, color: 'positive' },
+              expenseRatio: { score: s.expenseRatio.score, text: `${gen.expenseRatio}% of income`, color: s.expenseRatio.score > 60 ? 'positive' : 'warning' }
+            },
+            transactions: [
+              { id: 't1', date: 'Just now', desc: gen.topExpenseCategory, amount: `₹${Math.round(gen.monthlyExpenses[2]/2)}`, category: 'Debit', type: 'debit', icon: 'ShoppingCart' }
+            ],
+            lastUpdated: "Generated just now",
+            isGenerated: true,
+            rawGen: gen
+          };
+        } else {
+          const res = await fetch(`http://localhost:5000/api/score/${profileId}`);
+          if (!res.ok) throw new Error("Profile not found");
+          data = await res.json();
+        }
+
         setProfile(data);
         // Start the analysis animation sequence
         let step = 0;
@@ -46,12 +144,14 @@ export default function DashboardPage() {
             }, 600);
           }
         }, 800);
-      })
-      .catch(err => {
+      } catch (err) {
         console.error("Dashboard error:", err);
         setError(err.message);
         setLoading(false);
-      });
+      }
+    };
+    
+    loadProfile();
   }, [profileId]);
 
   if (loading) {
@@ -102,6 +202,46 @@ export default function DashboardPage() {
 
   const bgColorMap = { positive: 'bg-positive', warning: 'bg-warning', critical: 'bg-critical', electric: 'bg-electric' };
   const textColorMap = { positive: 'text-positive', warning: 'text-warning', critical: 'text-critical', electric: 'text-electric' };
+
+  // Build workerData for AI Coach from the backend profile
+  const monthlyIncome = profile.cashFlow?.map(m => m.income) || [];
+  const monthlyExpenses = profile.cashFlow?.map(m => m.expense) || [];
+  const avgMonthlyIncome = monthlyIncome.length
+    ? Math.round(monthlyIncome.reduce((a, b) => a + b, 0) / monthlyIncome.length)
+    : 0;
+  const totalInc = monthlyIncome.reduce((a, b) => a + b, 0) || 1;
+  const totalExp = monthlyExpenses.reduce((a, b) => a + b, 0);
+  const expenseRatio = Math.round((totalExp / totalInc) * 100);
+  const incomeTrend = monthlyIncome.length >= 2
+    ? parseFloat((((monthlyIncome[monthlyIncome.length - 1] - monthlyIncome[0]) / (monthlyIncome[0] || 1)) * 100).toFixed(1))
+    : 0;
+  // Find top expense category from transactions
+  const expTxns = (profile.transactions || []).filter(t => t.type === 'debit');
+  const categoryTotals = {};
+  expTxns.forEach(t => {
+    const cat = t.desc || 'Other';
+    categoryTotals[cat] = (categoryTotals[cat] || 0) + 1;
+  });
+  const topExpenseCategory = Object.entries(categoryTotals).sort((a, b) => b[1] - a[1])[0]?.[0] || 'General';
+
+  const loanAmt = profile.loanOffer?.amount?.replace(/[^0-9]/g, '') || '0';
+  const taxAmt = profile.taxSavings?.amount?.replace(/[^0-9]/g, '') || '0';
+
+  const workerDataForAI = {
+    name: profile.name,
+    platform: profile.platform,
+    gigScore: profile.score,
+    avgMonthlyIncome,
+    expenseRatio,
+    taxSaved: parseInt(taxAmt, 10),
+    loanEligibility: parseInt(loanAmt, 10),
+    incomeTrend,
+    tenure: parseInt(profile.tenure, 10) || 0,
+    riskLabel: profile.statusBadge,
+    topExpenseCategory,
+    monthlyIncome,
+    monthlyExpenses,
+  };
 
   return (
     <div className="min-h-screen bg-navy-900 pb-20 relative">
@@ -165,7 +305,7 @@ export default function DashboardPage() {
                     profile.statusColor === 'positive' ? 'text-positive drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]' :
                     profile.statusColor === 'warning' ? 'text-warning drop-shadow-[0_0_15px_rgba(245,158,11,0.3)]' :
                     'text-critical drop-shadow-[0_0_15px_rgba(239,68,68,0.3)]'
-                  }`}>{profile.score}</p>
+                  }`}>{animatedScore}</p>
                   <p className="text-sm text-slate-400 font-medium">GigScore</p>
                   <p className="text-[11px] text-slate-500 mt-2">Based on verified cash flow</p>
                 </div>
@@ -178,11 +318,28 @@ export default function DashboardPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <Card className="lg:col-span-5 h-full flex flex-col items-center justify-center relative overflow-hidden text-center py-10 px-4">
+          <Card className={`lg:col-span-5 h-full flex flex-col items-center justify-center relative overflow-hidden text-center py-10 px-4 transition-opacity duration-300 ${isRecalculating ? 'opacity-50' : 'opacity-100'}`}>
             <div className="absolute top-0 right-0 w-64 h-64 bg-electric/5 rounded-full blur-[80px]" />
-            <ScoreGauge score={profile.score} color={profile.statusColor} />
+            
+            {/* Floater indicator */}
+            <AnimatePresence>
+              {showDiff && scoreDiff && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: -10 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  className={`absolute top-10 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-sm font-black z-20 ${
+                    scoreDiff > 0 ? 'bg-positive/20 text-positive shadow-[0_0_20px_rgba(16,185,129,0.4)]' : 'bg-critical/20 text-critical shadow-[0_0_20px_rgba(239,68,68,0.4)]'
+                  }`}
+                >
+                  {scoreDiff > 0 ? `▲ +${scoreDiff}` : `▼ ${scoreDiff}`}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <ScoreGauge score={animatedScore} color={profile.statusColor} />
             <div className="mt-8 space-y-2 z-10">
-              <h3 className="text-2xl font-bold text-white">Loan Eligibility: <span className="text-positive">{profile.loanEligibility}</span></h3>
+              <h3 className="text-2xl font-bold text-white">Loan Eligibility: <span className="text-positive">₹{animatedLoan.toLocaleString('en-IN')}</span></h3>
               <p className="text-sm text-slate-400 pb-2">Based on {profile.cashFlow.length} months of verified AA cash flow</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 mt-6 w-full max-w-sm z-10">
@@ -207,11 +364,12 @@ export default function DashboardPage() {
                     <span className={`text-sm font-bold ${textColorMap[item.color]}`}>{item.score}/100</span>
                   </div>
                   <div className="h-2.5 w-full bg-navy-900 rounded-full overflow-hidden border border-white/[0.02]">
-                    <motion.div
-                      className={`h-full ${bgColorMap[item.color]} shadow-[0_0_10px_currentColor]`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${item.score}%` }}
-                      transition={{ duration: 1, delay: 0.3 + index * 0.15 }}
+                    <div
+                      className={`h-full ${bgColorMap[item.color]} shadow-[0_0_10px_currentColor] transition-all duration-1000 ease-out`}
+                      style={{ 
+                        width: barsVisible ? `${item.score}%` : '0%',
+                        transitionDelay: `${index * 150}ms`
+                      }}
                     />
                   </div>
                   <p className="text-xs text-slate-500 mt-1.5">{item.text}</p>
@@ -220,6 +378,9 @@ export default function DashboardPage() {
             </div>
           </Card>
         </div>
+
+        {/* --- SCORE SIMULATOR (LIVE WHAT-IF MATH) --- */}
+        <ScoreSimulator workerData={profile} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <Card className="lg:col-span-2">
@@ -236,7 +397,7 @@ export default function DashboardPage() {
               <h3 className="text-lg font-bold text-white">Auto Tax Savings</h3>
             </div>
             <div className="mb-8 flex-1 relative z-10">
-              <p className="text-4xl font-black text-white mb-2">{profile.taxSavings.amount}</p>
+              <p className="text-4xl font-black text-white mb-2">₹{animatedTax.toLocaleString('en-IN')}</p>
               <p className="text-sm text-slate-400">Set aside automatically <span className="text-slate-300 font-medium">({profile.taxSavings.percent} of income)</span></p>
             </div>
             <div className="mb-6 relative z-10">
@@ -311,7 +472,7 @@ export default function DashboardPage() {
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2">You're Pre-Approved!</h3>
                 <div className="flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-2 text-sm text-slate-300">
-                  <span className="bg-navy-900/50 px-2 py-1 rounded-md border border-white/5">Loan: <strong className="text-white ml-1">{profile.loanOffer.amount}</strong></span>
+                  <span className="bg-navy-900/50 px-2 py-1 rounded-md border border-white/5">Loan: <strong className="text-white ml-1">₹{animatedBannerLoan.toLocaleString('en-IN')}</strong></span>
                   <span className="bg-navy-900/50 px-2 py-1 rounded-md border border-white/5">Tenure: <strong className="text-white ml-1">{profile.loanOffer.tenure}</strong></span>
                   <span className="bg-navy-900/50 px-2 py-1 rounded-md border border-white/5">Interest: <strong className="text-white ml-1">{profile.loanOffer.interest}</strong></span>
                   <span className="bg-navy-900/50 px-2 py-1 rounded-md border border-white/5">EMI: <strong className="text-white ml-1">{profile.loanOffer.emi}</strong></span>
@@ -328,6 +489,9 @@ export default function DashboardPage() {
         )}
 
       </main>
+
+      {/* AI Financial Coach — floating widget */}
+      <AICoach workerData={workerDataForAI} />
     </div>
   );
 }

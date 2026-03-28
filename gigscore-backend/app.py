@@ -14,10 +14,15 @@ All responses are JSON. CORS is enabled for frontend cross-origin requests.
 
 import os
 import json
+import time
 import logging
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from scoring_engine import GigScoreEngine
+import google.generativeai as genai
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
 
 # ============================================================
 # APP CONFIGURATION
@@ -35,6 +40,11 @@ logger = logging.getLogger(__name__)
 
 engine = GigScoreEngine()
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+
+# Gemini AI setup
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
+ai_model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 # ============================================================
@@ -190,6 +200,62 @@ def calculate_custom_score():
     except Exception as e:
         logger.error(f"Custom score error: {str(e)}")
         return jsonify({"error": "Invalid request payload"}), 400
+
+
+@app.route('/api/ai-coach', methods=['POST'])
+def ai_coach():
+    """
+    Proxy Gemini AI requests through the backend to manage rate limits.
+    Expects JSON body: { systemPrompt, history, message }
+    """
+    try:
+        body = request.get_json()
+        system_prompt = body.get('systemPrompt', '')
+        history = body.get('history', [])
+        message = body.get('message', '')
+
+        if not message:
+            return jsonify({"error": "No message provided"}), 400
+
+        # Build the chat with system instruction
+        model = genai.GenerativeModel(
+            "gemini-2.5-flash",
+            system_instruction=system_prompt
+        )
+
+        # Convert history to Gemini format
+        gemini_history = []
+        for msg in history:
+            gemini_history.append({
+                "role": "user" if msg["role"] == "user" else "model",
+                "parts": [msg["text"]]
+            })
+
+        chat = model.start_chat(history=gemini_history)
+
+        # Retry with backoff for rate limits
+        max_retries = 4
+        for attempt in range(max_retries):
+            try:
+                if attempt > 0:
+                    wait_time = (2 ** attempt) * 2  # 4s, 8s, 16s
+                    logger.info(f"  AI Coach: retry #{attempt}, waiting {wait_time}s...")
+                    time.sleep(wait_time)
+
+                response = chat.send_message(message)
+                reply = response.text
+                logger.info(f"  AI Coach responded ({len(reply)} chars)")
+                return jsonify({"reply": reply}), 200
+
+            except Exception as retry_err:
+                err_str = str(retry_err)
+                if "429" in err_str and attempt < max_retries - 1:
+                    continue  # Retry on rate limit
+                raise  # Re-raise other errors or final retry
+
+    except Exception as e:
+        logger.error(f"AI Coach error: {str(e)}")
+        return jsonify({"error": str(e)}), 500
 
 
 # ============================================================

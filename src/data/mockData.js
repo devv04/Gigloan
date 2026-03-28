@@ -93,7 +93,7 @@ export const userProfiles = {
     platform: 'Urban Company',
     tenure: '3 months',
     avgIncome: '₹13,000',
-    statusBadge: 'Building Credit History',
+    statusBadge: 'High Risk',
     statusColor: 'critical',
     score: 481,
     loanEligibility: '₹0',

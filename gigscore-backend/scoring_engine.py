@@ -62,7 +62,7 @@ EXPENSE_FAIR: float = 0.70        # <70% → 60 points
 # Risk label thresholds (based on final GigScore)
 RISK_LOW_THRESHOLD: int = 700
 RISK_MODERATE_THRESHOLD: int = 550
-RISK_BUILDING_THRESHOLD: int = 450
+RISK_BUILDING_THRESHOLD: int = 500
 
 # Loan eligibility multiplier (% of monthly income)
 LOAN_MULTIPLIER: float = 0.8
@@ -142,10 +142,25 @@ class GigScoreEngine:
             f1_score = 40
 
         # --- FACTOR 2: Income Trend (Weight: 25%) ---
-        # Compares earliest month to latest month income
-        if len(monthly_income) >= 2:
-            m1 = monthly_income.iloc[0]
-            m_latest = monthly_income.iloc[-1]
+        # Compares earliest full month to latest full month income.
+        # Skip stub first/last months (only 1 payout day) to avoid
+        # inflated growth figures like 149% from a single late-Dec payout.
+        trend_income = monthly_income.copy()
+        if len(trend_income) >= 3:
+            # Check if the first month is a stub (only 1 payout day)
+            first_month = trend_income.index[0]
+            first_month_days = len(f1_df[f1_df['month_key'] == first_month]['date'].dt.day.unique())
+            if first_month_days < 2:  # Single payout day → stub month
+                trend_income = trend_income.iloc[1:]
+            # Check if the last month is a stub
+            last_month = trend_income.index[-1]
+            last_month_days = len(f1_df[f1_df['month_key'] == last_month]['date'].dt.day.unique())
+            if last_month_days < 2:
+                trend_income = trend_income.iloc[:-1]
+
+        if len(trend_income) >= 2:
+            m1 = trend_income.iloc[0]
+            m_latest = trend_income.iloc[-1]
             pct_change = float((m_latest - m1) / m1) if m1 > 0 else 0.0
         else:
             pct_change = 0.0

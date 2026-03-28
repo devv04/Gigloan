@@ -47,6 +47,18 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 relative overflow-hidden">
 
+      {/* Background Image Layer with Hollow Center Mask */}
+      <div 
+        className="absolute inset-0 z-0 opacity-30 mix-blend-luminosity pointer-events-none"
+        style={{
+          backgroundImage: "url('/gig-workers.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          maskImage: "radial-gradient(ellipse at center, transparent 25%, black 75%)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, transparent 25%, black 75%)"
+        }}
+      />
+
       {/* Decorative background elements */}
       <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-electric/20 rounded-full blur-[100px]" />
       <div className="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-positive/20 rounded-full blur-[100px]" />
@@ -62,7 +74,7 @@ export default function LandingPage() {
           className="bg-navy-800/40 backdrop-blur-xl border border-white/5 p-10 rounded-3xl shadow-2xl text-center mb-8"
         >
           {/* Logo */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-3 mb-6">
             <div className="bg-electric p-3 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.5)]">
               <Zap className="w-8 h-8 text-white fill-white" />
             </div>
