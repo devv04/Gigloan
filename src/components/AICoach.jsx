@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import API_BASE_URL from '../config/api';
 import { MessageCircle, X, Send, Sparkles } from "lucide-react";
 
 const buildSystemPrompt = (w) => `
@@ -87,7 +88,7 @@ export default function AICoach({ workerData }) {
         .slice(1) // skip welcome
         .map((m) => ({ role: m.role, text: m.text }));
 
-      const res = await fetch("http://localhost:5000/api/ai-coach", {
+      const res = await fetch(`${API_BASE_URL}/api/ai-coach`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

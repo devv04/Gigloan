@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 import { useState, useEffect } from 'react';
 import { ArrowLeft, TrendingUp, Calendar, Activity, Receipt, Lightbulb, Loader2 } from 'lucide-react';
 import { Card } from '../components/ui/Card';
@@ -11,7 +12,7 @@ export default function ScoreBreakdownPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/score/${profileId}`)
+    fetch(`${API_BASE_URL}/api/score/${profileId}`)
       .then(res => res.json())
       .then(data => {
         setProfile(data);

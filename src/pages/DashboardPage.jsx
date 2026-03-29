@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, User, ShieldCheck, Download, PiggyBank, ArrowUpRight, ArrowDownRight, BadgePercent, Loader2, XCircle, CheckCircle2 } from 'lucide-react';
@@ -132,7 +133,7 @@ export default function DashboardPage() {
             rawGen: gen
           };
         } else {
-          const res = await fetch(`http://localhost:5000/api/score/${profileId}`);
+          const res = await fetch(`${API_BASE_URL}/api/score/${profileId}`);
           if (!res.ok) throw new Error("Profile not found");
           data = await res.json();
         }

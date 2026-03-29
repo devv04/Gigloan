@@ -3,3 +3,6 @@ flask-cors
 numpy
 pandas
 python-dateutil
+gunicorn
+google-generativeai
+python-dotenv

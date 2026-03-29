@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import API_BASE_URL from '../config/api';
 import { useNavigate } from 'react-router-dom';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
@@ -13,7 +14,7 @@ export default function WorkerSelectionPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/profiles')
+    fetch(`${API_BASE_URL}/api/profiles`)
       .then(res => res.json())
       .then(data => {
         setProfiles(data);
