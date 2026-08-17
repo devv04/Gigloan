@@ -19,7 +19,7 @@ import logging
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from scoring_engine import GigScoreEngine
-import google.generativeai as genai
+from groq import Groq
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file
@@ -41,10 +41,9 @@ logger = logging.getLogger(__name__)
 engine = GigScoreEngine()
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
-# Gemini AI setup
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=GEMINI_API_KEY)
-ai_model = genai.GenerativeModel("gemini-2.5-flash")
+# Groq setup
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+groq_client = Groq(api_key=GROQ_API_KEY)
 
 
 # ============================================================
@@ -205,7 +204,7 @@ def calculate_custom_score():
 @app.route('/api/ai-coach', methods=['POST'])
 def ai_coach():
     """
-    Proxy Gemini AI requests through the backend to manage rate limits.
+    Proxy Groq AI requests through the backend.
     Expects JSON body: { systemPrompt, history, message }
     """
     try:
@@ -217,21 +216,19 @@ def ai_coach():
         if not message:
             return jsonify({"error": "No message provided"}), 400
 
-        # Build the chat with system instruction
-        model = genai.GenerativeModel(
-            "gemini-2.5-flash",
-            system_instruction=system_prompt
-        )
-
-        # Convert history to Gemini format
-        gemini_history = []
+        # Convert history to OpenAI/Groq format
+        groq_messages = []
+        if system_prompt:
+            groq_messages.append({"role": "system", "content": system_prompt})
+            
         for msg in history:
-            gemini_history.append({
-                "role": "user" if msg["role"] == "user" else "model",
-                "parts": [msg["text"]]
+            groq_messages.append({
+                "role": "user" if msg["role"] == "user" else "assistant",
+                "content": msg["text"]
             })
-
-        chat = model.start_chat(history=gemini_history)
+            
+        # Add the current message
+        groq_messages.append({"role": "user", "content": message})
 
         # Retry with backoff for rate limits
         max_retries = 4
@@ -242,8 +239,12 @@ def ai_coach():
                     logger.info(f"  AI Coach: retry #{attempt}, waiting {wait_time}s...")
                     time.sleep(wait_time)
 
-                response = chat.send_message(message)
-                reply = response.text
+                completion = groq_client.chat.completions.create(
+                    model="llama-3.3-70b-versatile",
+                    messages=groq_messages,
+                    temperature=0.7,
+                )
+                reply = completion.choices[0].message.content
                 logger.info(f"  AI Coach responded ({len(reply)} chars)")
                 return jsonify({"reply": reply}), 200
 

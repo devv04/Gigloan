@@ -4,5 +4,5 @@ numpy
 pandas
 python-dateutil
 gunicorn
-google-generativeai
+groq
 python-dotenv
